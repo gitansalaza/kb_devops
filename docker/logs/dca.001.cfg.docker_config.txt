@@ -1,0 +1,48 @@
+ansalaza@vbox-ubuntu-00:~$ sudo systemctl enable docker
+Synchronizing state of docker.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable docker
+ansalaza@vbox-ubuntu-00:~$ sudo systemctl disable docker
+Synchronizing state of docker.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install disable docker
+Removed /etc/systemd/system/multi-user.target.wants/docker.service.
+ansalaza@vbox-ubuntu-00:~$ sudo systemctl reload docker
+ansalaza@vbox-ubuntu-00:~$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; disabled; vendor preset: enabled)
+     Active: active (running) since Thu 2022-06-02 10:43:45 UTC; 17min ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+    Process: 10665 ExecReload=/bin/kill -s HUP $MAINPID (code=exited, status=0/SUCCESS)
+   Main PID: 9998 (dockerd)
+      Tasks: 9
+     Memory: 41.7M
+     CGroup: /system.slice/docker.service
+             └─9998 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+Jun 02 10:43:44 vbox-ubuntu-00 dockerd[9998]: time="2022-06-02T10:43:44.370671527Z" level=info msg="Loading containers: done."
+Jun 02 10:43:45 vbox-ubuntu-00 dockerd[9998]: time="2022-06-02T10:43:45.654783556Z" level=info msg="Docker daemon" commit=f756502 graphdriver(s)=overlay2 version=20.10.16
+Jun 02 10:43:45 vbox-ubuntu-00 dockerd[9998]: time="2022-06-02T10:43:45.655592518Z" level=info msg="Daemon has completed initialization"
+Jun 02 10:43:45 vbox-ubuntu-00 systemd[1]: Started Docker Application Container Engine.
+Jun 02 10:43:45 vbox-ubuntu-00 dockerd[9998]: time="2022-06-02T10:43:45.781557728Z" level=info msg="API listen on /run/docker.sock"
+Jun 02 10:48:23 vbox-ubuntu-00 dockerd[9998]: time="2022-06-02T10:48:23.884347705Z" level=info msg="ignoring event" container=64a6bc2adabc7c28d7bd450967cbd63af718a3245d48bd274efcb97c830831aa module=libcont>
+Jun 02 11:00:44 vbox-ubuntu-00 systemd[1]: Reloading Docker Application Container Engine.
+Jun 02 11:00:44 vbox-ubuntu-00 dockerd[9998]: time="2022-06-02T11:00:44.717564607Z" level=info msg="Got signal to reload configuration, reloading from: /etc/docker/daemon.json"
+Jun 02 11:00:44 vbox-ubuntu-00 dockerd[9998]: time="2022-06-02T11:00:44.718825483Z" level=info msg="Reloaded configuration: {\"mtu\":1500,\"pidfile\":\"/var/run/docker.pid\",\"data-root\":\"/var/lib/docker>
+Jun 02 11:00:44 vbox-ubuntu-00 systemd[1]: Reloaded Docker Application Container Engine.
+ansalaza@vbox-ubuntu-00:~$ sudo systemctl enable docker
+Synchronizing state of docker.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable docker
+Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /lib/systemd/system/docker.service.
+ansalaza@vbox-ubuntu-00:~$ sudo systemctl reload docker-daemon
+Failed to reload docker-daemon.service: Unit docker-daemon.service not found.
+ansalaza@vbox-ubuntu-00:~$ sudo systemctl reload docker
+ansalaza@vbox-ubuntu-00:~$
+ansalaza@vbox-ubuntu-00:~$ echo manual | sudo tee /etc/init/docker.override
+manual
+ansalaza@vbox-ubuntu-00:~$
+ansalaza@vbox-ubuntu-00:~$
+ansalaza@vbox-ubuntu-00:~$
+ansalaza@vbox-ubuntu-00:~$
+ansalaza@vbox-ubuntu-00:~$ cd /etc/docker
+ansalaza@vbox-ubuntu-00:/etc/docker$ sudo vi daemon.json
+ansalaza@vbox-ubuntu-00:/etc/docker$
