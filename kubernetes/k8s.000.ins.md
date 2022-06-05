@@ -4,8 +4,6 @@
 - **Updated on**:  2022-06-29 
 - **GitHub repository**: [kb_devops](https://github.com/gitansalaza/kb_devops)
 
-<br/>
-
 # DESCRIPTION
 **Objective**: To install and setup Kubernetes on Linux
 
@@ -22,6 +20,7 @@ Steps to be followed:
 <br/>
 
 # Solution
+1. Install kubectl binary with curl on Linux
 
 
 # Log file
